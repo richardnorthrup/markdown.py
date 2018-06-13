@@ -13,18 +13,18 @@ import fileinput
 import re
 
 def convertStrong(line):
-  line = re.sub(r'\*\*(.*)\*\*', r'<strong>\1</strong>', line)
-  line = re.sub(r'__(.*)__', r'<strong>\1</strong>', line)
+  line = str(re.sub(r'\*\*(.*)\*\*', r'<strong>\1</strong>', line))
+  line = str(re.sub(r'__(.*)__', r'<strong>\1</strong>', line))
   return line
 
 def convertEm(line):
-  line = re.sub(r'\*(.*)\*', r'<em>\1</em>', line)
-  line = re.sub(r'_(.*)_', r'<em>\1</em>', line)
+  line = str(re.sub(r'\*(.*)\*', r'<em>\1</em>', line))
+  line = str(re.sub(r'_(.*)_', r'<em>\1</em>', line))
   return line
 
 for line in fileinput.input():
   line = line.rstrip() 
   line = convertStrong(line)
   line = convertEm(line)
-  print '<p>' + line + '</p>',
+  print('<p>' + line + '</p>', end='')
 

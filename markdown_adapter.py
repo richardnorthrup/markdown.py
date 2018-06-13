@@ -16,7 +16,7 @@ def run_markdown(input_text):
     """
     The default method when we don't care which method to use.
     """
-    return run_markdown_pipe(input_text)
+    return run_markdown_pipe(input_text.encode()).decode()
 
 def run_markdown_pipe(input_text):
     """
